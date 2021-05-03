@@ -1,0 +1,56 @@
+@use "sass:color";
+
+$button-colors: (success: #597F58,
+    danger: #ED541D);
+
+@function buttonColorSet($colorName, $colorValue) {
+    $hoverValue : color.scale($colorValue, $lightness: 30%);
+    $activeValue: color.scale($success, $lightness: -50%);
+
+    $colors: map-merge($colors, ($colorName: $colorValue,
+            $colorName#{-hover}: $hoverValue,
+            $colorName#{-active}: $activeValue,
+            $colorName#{-border}: color.scale($colorValue, $alpha: 0.35%),
+            $colorName#{-border-hover}: color.scale($hoverValue, $alpha: 0.35%),
+            $colorName#{-border-active}: color.scale($activeValue, $alpha: 0.35%),
+        ));
+
+    @return $colors;
+}
+
+@mixin buttonSet($colorName) {
+    background  : map-get($button-colors, $colorName);
+    border-color: map-get($button-colors, $colorName#{-border});
+
+    &:hover {
+        border-color: map-get($button-colors, $colorName#{-border-hover});
+        background  : map-get($button-colors, $colorName#{-hover});
+    }
+
+    &:active {
+        border-color: map-get($button-colors, $colorName#{-border-active});
+        background  : map-get($button-colors, $colorName#{-active});
+    }
+}
+
+$base                 : #F0F0F0;
+$sidebar-color        : #fff;
+$title-color          : #40BAB2;
+$bnt-color            : #156996;
+$bnt-act              :color.scale($bnt-color, $lightness: -50%);
+$bnt-hov              :color.scale($bnt-color, $lightness: 30%);
+$bnt-border           :color.scale($bnt-color, $alpha: 0.35%);
+$bnt-act-border       :color.scale($bnt-act, $alpha: 0.35%);
+$bnt-hov-border       :color.scale($bnt-hov, $alpha: 0.35%);
+$content-color        : #E5DED8;
+$content-header-title : #2B8FA2;
+
+@each $color in danger,
+success {
+    @if not map-has-key($button-colors, $color) {
+        $button-colors: buttonColorSet($color, map-get($button-colors, $color));
+    }
+}
+
+$bnt-text : #FBFAF8;
+$text     : #000;

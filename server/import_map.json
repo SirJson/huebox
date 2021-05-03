@@ -1,0 +1,14 @@
+{
+    "imports": {
+        "std/http": "https://deno.land/std@0.95.0/http/mod.ts",
+        "std/path": "https://deno.land/std@0.95.0/path/mod.ts",
+        "types/mime": "./mimetypes.ts",
+        "app/config": "./config.ts",
+        "app/main": "./application.ts",
+        "phillips/hue": "./hue.ts",
+        "phillips/hue/model": "../common/hue.model.ts",
+        "app/common": "./common.ts",
+        "sys/dotenv": "https://deno.land/x/dotenv@v2.0.0/mod.ts",
+        "sys/webview": "../webview-deno/mod.ts"
+    }
+}

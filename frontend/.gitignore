@@ -1,0 +1,5 @@
+.env
+node_modules
+dist/common/*
+dist/frontend/*
+dist/styles/*

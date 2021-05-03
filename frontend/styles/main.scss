@@ -1,0 +1,84 @@
+@use 'colors';
+@import 'reset.scss';
+@import 'publicsans.scss';
+@import 'lato.scss';
+
+
+
+html {
+    margin     : 0;
+    padding    : 0;
+    font-family: 'Public Sans';
+    width      : 100%;
+    height     : 100%;
+    background : colors.$base;
+    color      : colors.$text;
+    transition : all 0.5s;
+}
+
+main {
+    display              : grid;
+    grid-template-columns: 300px auto;
+    width                : 100vw;
+    height               : 100vh;
+}
+
+aside {
+    height         : 100%;
+    display        : flex;
+    flex-direction : column;
+    align-items    : center;
+    justify-content: stretch;
+    gap            : 1rem;
+    box-shadow     : 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+h1,
+header {
+    font-family: 'Lato';
+    font-weight: 300;
+    font-size  : 48px;
+}
+
+header {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
+    background-color: colors.$title-color;
+    width           : 100%;
+    text-align      : center;
+
+    padding      : 0.5rem;
+    color        : colors.$bnt-text;
+    margin-bottom: 1rem;
+}
+
+
+section {
+    background-color: colors.$content-color;
+}
+
+#devices {
+    display: flex;
+    gap    : 1rem;
+    padding: 1rem;
+}
+
+
+
+
+
+aside>button:before {
+    content    : "🠶";
+    margin-left: 8px;
+    font-size  : 24px;
+    line-height: 3rem;
+}
+
+aside>button {
+    width      : 80%;
+    min-height : max-content;
+    height     : 3rem;
+    display    : flex;
+    align-items: center;
+    gap        : 16px;
+}
